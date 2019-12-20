@@ -10,7 +10,7 @@ module.exports = {
         path: __dirname + '/public'
     },
     devServer: {
-        port: 8080,
+        port: 8084,
         contentBase: './public',
     },
     resolve: {
