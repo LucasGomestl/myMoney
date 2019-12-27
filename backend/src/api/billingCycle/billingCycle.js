@@ -14,8 +14,8 @@ const debtSchema = new mongoose.Schema({
 })
 
 const billingCycleSchema = new mongoose.Schema({
-    month: { type: String, required: true, uppercase: true,
-        enum: ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'] },
+    month: { type: String, required: true,
+        enum: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] },
     year: { type: Number, min: 1970, max: 2200, required: true },
     credits: [creditSchema],
     debts: [debtSchema]
