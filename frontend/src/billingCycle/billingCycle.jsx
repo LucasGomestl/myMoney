@@ -9,7 +9,9 @@ import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
 import List from './list'
+import Form from './billingCycleForm'
 import { showTabs } from '../common/tab/tabActions'
+import { create } from './billingCycleActions'
 
 
 export default props => {
@@ -32,7 +34,9 @@ export default props => {
                         <TabContent id='tabList'>
                             <List />
                         </TabContent>
-                        <TabContent id='tabCreate'><h1>Include</h1></TabContent>
+                        <TabContent id='tabCreate'>
+                            <Form onSubmit={e => dispatch(create(e))}/>
+                        </TabContent>
                         <TabContent id='tabUpdate'><h1>Update</h1></TabContent>
                         <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
                     </TabsContent>
