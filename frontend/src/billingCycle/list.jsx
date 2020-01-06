@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Button from './button'
-import { getList } from './billingCycleActions'
+import { getList, showMethod, remove } from './billingCycleActions'
 
 const billingCycleList = () => {
 
@@ -11,15 +11,15 @@ const billingCycleList = () => {
 
     useEffect(() => {
         dispatch(getList())
-    },[])
+    },[getList()])
 
 const renderRows = () => list.map(billingCycle => (
     <tr key={billingCycle._id}>
             <td>{billingCycle.month}</td>
             <td>{billingCycle.year}</td>
             <td>
-                <Button type='warning' icon='pencil'/>
-                <Button type='danger' icon='trash' />
+                <Button type='warning' icon='pencil' click={() => dispatch(showMethod(billingCycle, 'Update'))}/>
+                <Button type='danger' icon='trash' click={() => dispatch(remove(billingCycle._id))}/>
             </td>
     </tr>
 ))

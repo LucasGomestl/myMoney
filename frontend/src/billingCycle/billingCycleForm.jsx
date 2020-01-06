@@ -1,10 +1,13 @@
 import React from 'react'
 import { reduxForm, Field } from 'redux-form'
+import { useDispatch } from 'react-redux'
+
 import labelAndInput from '../common/form/labelAndInput'
+import { init } from './billingCycleActions'
 
 let billingCycleForm = props => {
     const { handleSubmit } = props
-
+    const dispatch = useDispatch()
     return (
         <form role='form' onSubmit={handleSubmit}>
             <div className="box-body">
@@ -24,10 +27,12 @@ let billingCycleForm = props => {
             </div>
             <div className="box-footer">
                 <button type='submit' className='btn btn-primary'>Submit</button>
+                <button type='button' className='btn btn-default'
+                        onClick={() => dispatch(init())}>Cancel</button>
             </div>
         </form>
     )
 }
 
-export default reduxForm({ form: 'BillingCycle' })(billingCycleForm)
+export default reduxForm({ form: 'billingCycle', destroyOnUnmount: false })(billingCycleForm)
 

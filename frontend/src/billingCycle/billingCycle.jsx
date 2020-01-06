@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
@@ -10,14 +10,13 @@ import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
 import List from './list'
 import Form from './billingCycleForm'
-import { showTabs } from '../common/tab/tabActions'
-import { create } from './billingCycleActions'
+import { init, create, update } from './billingCycleActions'
 
 
 export default props => {
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(showTabs('tabList', 'tabCreate'))
+        dispatch(init())
     })
     return (
         <div>
@@ -37,7 +36,9 @@ export default props => {
                         <TabContent id='tabCreate'>
                             <Form onSubmit={e => dispatch(create(e))}/>
                         </TabContent>
-                        <TabContent id='tabUpdate'><h1>Update</h1></TabContent>
+                        <TabContent id='tabUpdate'>
+                            <Form onSubmit={e => dispatch(update(e))}/>
+                        </TabContent>
                         <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
                     </TabsContent>
                 </Tabs>
