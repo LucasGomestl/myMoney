@@ -34,10 +34,12 @@ export default props => {
                             <List />
                         </TabContent>
                         <TabContent id='tabCreate'>
-                            <Form onSubmit={e => dispatch(create(e))}/>
+                            <Form onSubmit={e => dispatch(create(e))}
+                                submitLabel='Create' submitClass='primary'/>
                         </TabContent>
                         <TabContent id='tabUpdate'>
-                            <Form onSubmit={e => dispatch(update(e))}/>
+                            <Form onSubmit={e => dispatch(update(e))}
+                                submitLabel='Update' submitClass='info'/>
                         </TabContent>
                         <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
                     </TabsContent>
